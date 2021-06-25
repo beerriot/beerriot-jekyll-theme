@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="pure-u-1">
+  <span class="pagedate">Published {{page.date | date: "%A, %B %e,"}}
+    <a href="{{page.date | date: "%Y" | strip | prepend: "/archive/" | append: "/"}}">{{page.date | date: "%Y"}}</a>
+  </span>
+  <span class="pageauthor"> by {{page.author.display_name}}</span>
+</div>
+<div class="pure-u-1">
+  {{content}}
+</div>
+{% unless page.categories == empty %}
+<div class="pure-u-1"><p>
+     Categories:
+     {% assign sorted_categories = page.categories  | sort: "name" %}
+     {% for category in sorted_categories %}
+     <a href="{{category | downcase | replace: " ", "-" | prepend: "/category/" | append: "/"}}">{{category}}</a>
+     {% endfor %}
+</p></div>
+{% endunless %}
+
+<div class="pure-u-1 pure-u-md-1-2">
+  {% if page.previous %}
+  <span class="prevlink">
+    <a href="{{page.previous.url}}">&larr; {{page.previous.title}}</a>
+  </span>
+  {% endif %}
+</div>
+<div class="pure-u-1 pure-u-md-1-2">
+  {% if page.next %}
+  <div class="nextlink">
+    <a href="{{page.next.url}}">{{page.next.title}} &rarr;</a>
+  </div>
+  {% endif %}
+</div>
+
+<div class="pure-u-1 legal">
+  <p>
+    Post Copyright &copy; {{page.date | date: "%Y"}} Bryan Fink
+  </p>
+</div>

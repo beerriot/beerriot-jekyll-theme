@@ -1,0 +1,63 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="{% link /assets/pure-min.css %}" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd">
+    <link rel="stylesheet" href="{% link /assets/grids-responsive-min.css %}">
+    <link rel="stylesheet" href="{% link /assets/pure-menu-style.css %}">
+    {% include site_head_links.html %}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BeerRiot{% if site.subtitle %} {{site.subtitle}}{% endif %}{% if page.title %}: {{page.title}}{% endif %}" />
+    {% if page.key_image %}<meta property="og:image" content="{{ page.key_image }}" />{% endif %}
+    <meta property="og:url" content="{{ page.url | absolute_url}}" />
+    {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | escape_once }}" />{% endif %}
+    <meta name="twitter:site" content="@beerriot" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BeerRiot{% if site.subtitle %} {{site.subtitle}}{% endif %}{% if page.title %}: {{page.title}}{% endif %}</title>
+  </head>
+  <body>
+    <div id="layout">
+      <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+      </a>
+      <div id="menu">
+        <div class="pure-menu">
+          <a class="pure-menu-heading" href="/">
+            <image class="pure-img" style="max-width: 95%" src="{% link assets/logo-clear.png %}" />
+          </a>
+          <div class="pure-menu-heading" style="text-align: center">
+            {% include site_social_links.html %}
+            <a href="https://twitter.com/beerriot"><img src="{% link assets/twitter-logo-32px.png %}" /></a>
+            <a href="https://github.com/beerriot"><img src="{% link assets/GitHub-Mark-32px.png %}" /></a>
+            <a href="mailto:bryan+{{ site.email_suffix }}@beerriot.com"><img src="{% link assets/email-icon-at.png %}" /></a>
+          </div>
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item {% if page.url == "/" %}pure-menu-selected{% endif %}">
+              <a href="/" class="pure-menu-link">Home</a>
+            </li>
+            <li class="pure-menu-item {% if page.url == "/about.html" %}pure-menu-selected{% endif %}">
+              <a href="{% link about.html %}" class="pure-menu-link">About</a>
+            </li>
+
+            {% include site_menu_links.html %}
+          </ul>
+        </div>
+        <div class="legal">Site Copyright &copy; 2021 Bryan Fink</div>
+      </div>
+      <div id="main">
+        <div class="header">
+          <h1>{% if page.title %}{{page.title}}{% else %}BeerRiot {{site.subtitle}}{% endif %}</h1>
+        </div>
+        <div class="content">
+          <div class="pure-g">
+            {{content}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% link /assets/pure-menu.js %}"></script>
+  </body>
+</html>
