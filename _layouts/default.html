@@ -10,7 +10,7 @@
     {% include site_head_links.html %}
     <meta property="og:type" content="website" />
     <meta property="og:title" content="BeerRiot{% if site.subtitle %} {{site.subtitle}}{% endif %}{% if page.title %}: {{page.title}}{% endif %}" />
-    {% if page.key_image %}<meta property="og:image" content="{{ page.key_image }}" />{% endif %}
+    {% if page.key_image %}<meta property="og:image" content="{{ page.key_image | absolute_url }}" />{% endif %}
     <meta property="og:url" content="{{ page.url | absolute_url}}" />
     {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | escape_once }}" />{% endif %}
     <meta name="twitter:site" content="@beerriot" />
