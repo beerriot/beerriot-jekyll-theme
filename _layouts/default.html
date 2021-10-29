@@ -13,7 +13,7 @@
     {% if page.key_image %}<meta property="og:image" content="{{ page.key_image | absolute_url }}" />{% endif %}
     <meta property="og:url" content="{{ page.url | absolute_url}}" />
     {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | escape_once }}" />{% endif %}
-    <meta name="twitter:site" content="@beerriot" />
+    <meta name="twitter:creator" content="@hobbyist" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BeerRiot{% if site.subtitle %} {{site.subtitle}}{% endif %}{% if page.title %}: {{page.title}}{% endif %}</title>
   </head>
@@ -30,7 +30,7 @@
           </a>
           <div class="pure-menu-heading" style="text-align: center">
             {% include site_social_links.html %}
-            <a href="https://twitter.com/beerriot"><img src="{% link assets/twitter-logo-32px.png %}" /></a>
+            <a href="https://twitter.com/hobbyist"><img src="{% link assets/twitter-logo-32px.png %}" /></a>
             <a href="https://github.com/beerriot"><img src="{% link assets/GitHub-Mark-32px.png %}" /></a>
             <a href="mailto:bryan+{{ site.email_suffix }}@beerriot.com"><img src="{% link assets/email-icon-at.png %}" /></a>
           </div>
